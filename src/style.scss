@@ -1,3 +1,16 @@
+// Variáveis
+$bg-color: whitesmoke;
+$panel-bg-color: lightgray;
+$panel-border-width: 4rem;
+$border-left-color: rgb(150, 150, 150);
+$border-top-color: rgb(200, 200, 200);
+$border-right-color: rgb(150, 150, 150);
+$border-bottom-color: rgb(100, 100, 100);
+$display-button-color: rgb(0, 20, 0);
+$ball-size: 40px;
+$ball-color: darkgreen;
+
+// Global
 * {
   margin: 0;
   padding: 0;
@@ -7,5 +20,74 @@
 :root {
   font-size: 62.5%;
   font-family: Arial, Helvetica, sans-serif;
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+// App
+#root {
+  width: 100vw;
+  height: 100vh;
+  background-color: $bg-color;
+  @extend .container;
+
+  .Game {
+    width: 100%;
+    height: 100%;
+    @extend .container;
+    justify-content: space-evenly;
+
+    .Panel {
+      min-width: 350px;
+      min-height: 400px;
+      background-color: $panel-bg-color;
+
+      border: $panel-border-width solid;
+      border-radius: .5rem;
+      border-left-color: $border-left-color;
+      border-top-color: $border-top-color;
+      border-right-color: $border-right-color; 
+      border-bottom-color: $border-bottom-color;
+
+      @extend .container;
+      flex-direction: column;
+      justify-content: space-between;
+
+      .CurrentPosition {
+        margin: 1.5rem 0;
+        width: 100%;
+        @extend .container;
+
+        .Ball {
+          margin: 0 .5rem;
+          width: $ball-size;
+          height: $ball-size;
+          background-color: $ball-color;
+          border: .6rem solid black;
+          border-radius: 50%;
+        }
+      }
+
+      .Display {
+        margin: 25px;
+        width: 200px;
+        height: 200px;
+        border-radius: .5rem;
+        display: grid;
+        grid-gap: .5rem;
+        grid-template-columns: repeat(3, 1fr);
+
+        .DisplayButton {
+          background-color: $display-button-color;
+          border-radius: .5rem;
+        }
+      }
+    }
+  }
 }
 
