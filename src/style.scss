@@ -33,7 +33,9 @@ $ball-color: darkgreen;
 #root {
   width: 100vw;
   height: 100vh;
-  background-color: $bg-color;
+  background-image: url('./assets/bg-space.png');
+  background-repeat: no-repeat;
+  background-size: cover;
   @extend .container;
 
   .Game {
