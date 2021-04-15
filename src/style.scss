@@ -7,13 +7,16 @@ $border-top-color: rgb(200, 200, 200);
 $border-right-color: rgb(150, 150, 150);
 $border-bottom-color: rgb(100, 100, 100);
 $display-button-color: rgb(0, 20, 0);
+$button-border: .5rem;
 $ball-size: 40px;
 $ball-color: darkgreen;
+$button-color: rgb(45, 45, 45);
 
 // Global
 * {
   margin: 0;
   padding: 0;
+  border: 0;
   box-sizing: border-box;
 }
 
@@ -29,7 +32,7 @@ $ball-color: darkgreen;
   align-items: center;
 }
 
-// App
+// Game
 #root {
   width: 100vw;
   height: 100vh;
@@ -43,6 +46,24 @@ $ball-color: darkgreen;
     height: 100%;
     @extend .container;
     justify-content: space-evenly;
+    position: relative;
+
+    .Modal {
+      @extend .container;
+      background-color: rgb(0, 0, 0, .5);
+      position: absolute;
+      left: 0;
+      top: 0;
+      right: 0;
+      bottom: 0;
+
+      h2 {
+        font-size: 3rem;
+        font-weight: bold;
+        text-align: center;
+        color: white;
+      }
+    }
 
     .Panel {
       min-width: 350px;
@@ -61,7 +82,7 @@ $ball-color: darkgreen;
       justify-content: space-between;
 
       .CurrentPosition {
-        margin: 1.5rem 0;
+        padding: 1.5rem 0;
         width: 100%;
         @extend .container;
 
@@ -76,20 +97,40 @@ $ball-color: darkgreen;
       }
 
       .Display {
-        margin: 25px;
-        width: 200px;
-        height: 200px;
-        border-radius: .5rem;
+        padding: 25px;
+        width: 100%;
+        height: 250px;
         display: grid;
-        grid-gap: .5rem;
+        grid-gap: 1rem;
         grid-template-columns: repeat(3, 1fr);
 
         .DisplayButton {
-          background-color: $display-button-color;
-          border-radius: .5rem;
+          // background-color: $display-button-color;
+          background-image: radial-gradient(rgb(0, 30, 0), $display-button-color);
+          border-radius: $button-border;
+        }
+
+        .DisplayButton:hover {
+          cursor: not-allowed;
+        }
+      }
+
+      .Buttons {
+        @extend .Display;
+
+        .button {
+          // background-color: $button-color;
+          background-image: radial-gradient(rgb(70, 70, 70), $button-color);
+          border-radius: $button-border;
+          transition-property: filter;
+          transition-duration: .3s;
+          cursor: pointer;
+        }
+
+        .button:hover {
+          filter: brightness(75%);
         }
       }
     }
   }
 }
-
