@@ -48,23 +48,6 @@ $button-color: rgb(45, 45, 45);
     justify-content: space-evenly;
     position: relative;
 
-    .Modal {
-      @extend .container;
-      background-color: rgb(0, 0, 0, .5);
-      position: absolute;
-      left: 0;
-      top: 0;
-      right: 0;
-      bottom: 0;
-
-      h2 {
-        font-size: 3rem;
-        font-weight: bold;
-        text-align: center;
-        color: white;
-      }
-    }
-
     .Panel {
       min-width: 350px;
       min-height: 400px;
@@ -130,6 +113,33 @@ $button-color: rgb(45, 45, 45);
         .button:hover {
           filter: brightness(75%);
         }
+      }
+    }
+
+    .Modal {
+      @extend .container;
+      background-color: rgb(0, 0, 0, .5);
+      position: absolute;
+      left: 0;
+      top: 0;
+      right: 0;
+      bottom: 0;
+
+      @keyframes toFloat {
+        from { transform: translateY(10px); }
+        to { transform: translateY(0); }
+      }
+
+      h2 {
+        font-size: 3rem;
+        font-weight: bold;
+        text-align: center;
+        color: white;
+
+        animation-name: toFloat;
+        animation-duration: 2s;
+        animation-iteration-count: infinite;
+        animation-direction: alternate;
       }
     }
   }

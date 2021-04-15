@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import CurrentPosition from './CurrentPosition.js';
 import Panel from './Panel.js';
 import Modal from './Modal.js';
@@ -12,8 +12,12 @@ export default function Game() {
     return event.key === "Enter" && setStart(false);
   }
 
+  useEffect(() => {
+    window.document.body.addEventListener('keypress', handleKeyPress);
+  }, []);
+
   return (
-    <div className="Game" tabIndex="-1" onKeyPress={handleKeyPress}>
+    <div className="Game">
       {start && <Modal />}
 
       <Panel>
