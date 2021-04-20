@@ -6,11 +6,11 @@ $border-left-color: rgb(150, 150, 150);
 $border-top-color: rgb(200, 200, 200);
 $border-right-color: rgb(150, 150, 150);
 $border-bottom-color: rgb(100, 100, 100);
-$display-button-color: rgb(0, 20, 0);
+$display-button-color: radial-gradient(rgb(0, 30, 0), rgb(0, 20, 0));
 $button-border: .5rem;
 $ball-size: 40px;
 $ball-color: darkgreen;
-$button-color: rgb(45, 45, 45);
+$button-color: radial-gradient(rgb(70, 70, 70), rgb(45, 45, 45));
 
 // Global
 * {
@@ -36,7 +36,7 @@ $button-color: rgb(45, 45, 45);
 #root {
   width: 100vw;
   height: 100vh;
-  background-image: url('./assets/bg-space.png');
+  background-image: url('../public/bg-space.png');
   background-repeat: no-repeat;
   background-size: cover;
   @extend .container;
@@ -88,13 +88,23 @@ $button-color: rgb(45, 45, 45);
         grid-template-columns: repeat(3, 1fr);
 
         .DisplayButton {
-          // background-color: $display-button-color;
-          background-image: radial-gradient(rgb(0, 30, 0), $display-button-color);
+          background-image: $display-button-color;
           border-radius: $button-border;
+          
+          // apagar
+          @extend .container;
+          font-size: 2rem;
+          font-weight: bold;
+          color: white;
         }
 
         .DisplayButton:hover {
           cursor: not-allowed;
+        }
+
+        .On {
+          background: limegreen;
+          color: black;
         }
       }
 
@@ -102,11 +112,11 @@ $button-color: rgb(45, 45, 45);
         @extend .Display;
 
         .button {
-          // background-color: $button-color;
-          background-image: radial-gradient(rgb(70, 70, 70), $button-color);
+          background-image: $button-color;
           border-radius: $button-border;
           transition-property: filter;
           transition-duration: .3s;
+          outline: none;
           cursor: pointer;
         }
 
