@@ -1,8 +1,9 @@
 import React from 'react';
 
 export default function CurrentPosition() {
-  const lista = [0, 1, 2, 3, 4];
-  const balls = lista.map((index) => <div key={index} className="Ball" />);
+  const balls = Array.from({ length: 5 }, (value, index) => {
+    return <div key={index} />
+  })
 
   return (
     <div className="CurrentPosition">

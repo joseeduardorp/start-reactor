@@ -1,4 +1,4 @@
-// Variáveis
+// Variables
 $bg-color: whitesmoke;
 $panel-bg-color: lightgray;
 $panel-border-width: 4rem;
@@ -32,7 +32,6 @@ $button-color: radial-gradient(rgb(70, 70, 70), rgb(45, 45, 45));
   align-items: center;
 }
 
-// Game
 #root {
   width: 100vw;
   height: 100vh;
@@ -40,117 +39,108 @@ $button-color: radial-gradient(rgb(70, 70, 70), rgb(45, 45, 45));
   background-repeat: no-repeat;
   background-size: cover;
   @extend .container;
+  
+}
 
-  .Game {
-    width: 100%;
-    height: 100%;
-    @extend .container;
-    justify-content: space-evenly;
-    position: relative;
+// Game
+.Game {
+  width: 100%;
+  height: 100%;
+  @extend .container;
+  justify-content: space-evenly;
+  position: relative;
+}
 
-    .Panel {
-      min-width: 350px;
-      min-height: 400px;
-      background-color: $panel-bg-color;
+.Panel {
+  min-width: 350px;
+  min-height: 400px;
+  background-color: $panel-bg-color;
 
-      border: $panel-border-width solid;
-      border-radius: .5rem;
-      border-left-color: $border-left-color;
-      border-top-color: $border-top-color;
-      border-right-color: $border-right-color; 
-      border-bottom-color: $border-bottom-color;
+  border: $panel-border-width solid;
+  border-radius: .5rem;
+  border-left-color: $border-left-color;
+  border-top-color: $border-top-color;
+  border-right-color: $border-right-color; 
+  border-bottom-color: $border-bottom-color;
 
-      @extend .container;
-      flex-direction: column;
-      justify-content: space-between;
+  @extend .container;
+  flex-direction: column;
+  justify-content: space-between;
+}
 
-      .CurrentPosition {
-        padding: 1.5rem 0;
-        width: 100%;
-        @extend .container;
+.CurrentPosition {
+  padding: 1.5rem 0;
+  width: 100%;
+  @extend .container;
 
-        .Ball {
-          margin: 0 .5rem;
-          width: $ball-size;
-          height: $ball-size;
-          background-color: $ball-color;
-          border: .6rem solid black;
-          border-radius: 50%;
-        }
-      }
+  div {
+    margin: 0 .5rem;
+    width: $ball-size;
+    height: $ball-size;
+    background-color: $ball-color;
+    border: .6rem solid black;
+    border-radius: 50%;
+  }
+}
 
-      .Display {
-        padding: 25px;
-        width: 100%;
-        height: 250px;
-        display: grid;
-        grid-gap: 1rem;
-        grid-template-columns: repeat(3, 1fr);
+.Display {
+  padding: 25px;
+  width: 100%;
+  height: 250px;
+  display: grid;
+  grid-gap: 1rem;
+  grid-template-columns: repeat(3, 1fr);
 
-        .DisplayButton {
-          background-image: $display-button-color;
-          border-radius: $button-border;
-          
-          // apagar
-          @extend .container;
-          font-size: 2rem;
-          font-weight: bold;
-          color: white;
-        }
+  div {
+    background-image: $display-button-color;
+    border-radius: $button-border;
+  }
 
-        .DisplayButton:hover {
-          cursor: not-allowed;
-        }
+  div:hover {
+    cursor: default;
+  }
+}
 
-        .On {
-          background: limegreen;
-          color: black;
-        }
-      }
+.Buttons {
+  @extend .Display;
 
-      .Buttons {
-        @extend .Display;
+  button {
+    background-image: $button-color;
+    border-radius: $button-border;
+    transition-property: filter;
+    transition-duration: .3s;
+    outline: none;
+    cursor: pointer;
+  }
 
-        .button {
-          background-image: $button-color;
-          border-radius: $button-border;
-          transition-property: filter;
-          transition-duration: .3s;
-          outline: none;
-          cursor: pointer;
-        }
+  button:hover {
+    filter: brightness(75%);
+  }
+}
 
-        .button:hover {
-          filter: brightness(75%);
-        }
-      }
-    }
+.Modal {
+  @extend .container;
+  background-color: rgb(0, 0, 0, .5);
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
 
-    .Modal {
-      @extend .container;
-      background-color: rgb(0, 0, 0, .5);
-      position: absolute;
-      left: 0;
-      top: 0;
-      right: 0;
-      bottom: 0;
+  @keyframes toFloat {
+    from { transform: translateY(10px); }
+    to { transform: translateY(0); }
+  }
 
-      @keyframes toFloat {
-        from { transform: translateY(10px); }
-        to { transform: translateY(0); }
-      }
+  h2 {
+    font-size: 3rem;
+    font-weight: bold;
+    text-align: center;
+    color: white;
 
-      h2 {
-        font-size: 3rem;
-        font-weight: bold;
-        text-align: center;
-        color: white;
-
-        animation-name: toFloat;
-        animation-duration: 2s;
-        animation-iteration-count: infinite;
-        animation-direction: alternate;
-      }
-    }
+    animation-name: toFloat;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
   }
 }
