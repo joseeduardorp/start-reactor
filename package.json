@@ -18,7 +18,6 @@
   "bugs": {
     "url": "https://github.com/joseeduardorp/start-reactor/issues"
   },
-  "homepage": "https://github.com/joseeduardorp/start-reactor#readme",
   "devDependencies": {
     "@babel/cli": "^7.13.14",
     "@babel/core": "^7.13.15",
