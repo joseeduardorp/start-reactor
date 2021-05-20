@@ -2,6 +2,8 @@
   Start Reactor Game
 </h1>
 
+![start-reactor-background](https://github.com/joseeduardorp/start-reactor/blob/main/public/start-reactor-bg.png)
+
 ## Tecnologias
 
 - [React](https://reactjs.org)
